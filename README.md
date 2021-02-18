@@ -6,3 +6,5 @@ Este projeto foi deixado como atividade a ser realizado após a finalização do
 O projeto serve como base para mim e para outros programadores, quando sentirem a necessidade de realizar um CRUD utilizando python e mongo, terem como referência o código.
 
 O projeto não está completo. Deixei funcionando tudo referente a classe Cliente e persistencias das demais classes no banco, porém, nas demais classes, falta implementar o restante das funcionalidades do CRUD.
+
+Toda a interação inicial do programa está contida no main.py
