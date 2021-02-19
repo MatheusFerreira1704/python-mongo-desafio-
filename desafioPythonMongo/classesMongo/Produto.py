@@ -28,6 +28,50 @@ class Produtos(object):
         # time.sleep(1)
         print('Produto inserido com sucesso...')
 
+    def listarProdutos(self):
+        produtos = banco.produtos
+        for doc in produtos.find():
+
+            print(f"Categoria:{doc['categoria']}\nNome:{doc['nome']}\nCódigo:{doc['codigo']}\nPreço:{doc['preco']}\n"
+                  f"Nome Fornecedor:{doc['fornecedor']['razao_social']}\n"
+                  f"CNPJ Fornecedor:{doc['fornecedor']['cnpj']}"
+                  )
+
+    def pesquisarProduto(self, codigo):
+        produtos = banco.produtos
+        doc = produtos.find_one({'codigo': codigo})
+        print('Buscando Produto...')
+        # time.sleep(1)
+        if doc is None:
+            print('Produto não encontrado.')
+        else:
+            print(f"Categoria: {doc['categoria']}\nNome: {doc['nome']}\nCódigo: {doc['codigo']}\nPreço: {doc['preco']}\n"
+            f"Nome Fornecedor: {doc['fornecedor']['razao_social']}\n"
+            f"CNPJ Fornecedor: {doc['fornecedor']['cnpj']}"
+            )
+
+    def atualizarProduto(self, codigo, dado, valor):
+        produtos = banco.produtos
+        doc = produtos.find_one({'codigo': codigo})
+        if doc is None:
+            print('Produto não encontrado. ')
+        else:
+            produtos.update_one({'codigo': codigo},{
+                "$set": {
+                    f'{dado}': valor
+                }
+            })
+
+    def removerProduto(self, codigo):
+        produtos = banco.produtos
+        doc = produtos.find_one({'codigo': codigo})
+        if doc is None:
+            print(f'Não existe produto cadastrado com esse código: {codigo}. ')
+        else:
+            produtos.delete_one(doc)
+            print('Produto excluido com sucesso...')
+
+
     def buscarProduto(self, refCodigo):
         produtos = banco.produtos
         doc = produtos.find_one({'codigo': refCodigo})
