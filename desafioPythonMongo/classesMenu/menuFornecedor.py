@@ -123,7 +123,7 @@ def menuFornecedores():
             time.sleep(1)
             opcaoFornecedor = -1
 
-        elif opcaoFornecedor == 5: # Opção de remoção de Fornecedores.
+        elif opcaoFornecedor == 5: #Opção de remoção de Fornecedores.
             removerFornecedor = Fornecedores()
             print('----------Abrindo remoção de Fornecedor ----------')
             time.sleep(1)
