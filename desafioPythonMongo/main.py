@@ -20,7 +20,7 @@ from classesMenu.menuVenda import menuVendas
 opcao = 0
 while (opcao >= 0) and (opcao <= 5):
 
-    if opcao == 0:
+    if opcao == 0: #Interacao principal da aplicacao.
         print('----------Menu Principal----------\n')
         print('Escolha uma das opções:')
         print('\t1 - Clientes')
@@ -32,41 +32,44 @@ while (opcao >= 0) and (opcao <= 5):
             opcao = int(input('Digite uma opção: '))
             if opcao > 5:
                 print('Opção inexistente.')
-                # time.sleep(2)
+                time.sleep(2)
                 print('Retornando ao menu principal.')
-                # time.sleep(1)
-                opcao =0
+                time.sleep(1)
+                opcao = 0
 
         except ValueError:
             opcao = 0
-    elif opcao == 1:
+
+    elif opcao == 1: #opcao de acesso ao menu cliente.
         print('----------Abrindo Área do Ciente----------')
-        # time.sleep(2)
+        time.sleep(2)
         print('----------Área do Ciente----------\n')
-        # time.sleep(1)
+        time.sleep(1)
         menuClientes()
 
-    elif opcao == 2:
+    elif opcao == 2: #opcao de acesso ao menu forncedor
         print('----------Abrindo Área do Fornecedor----------')
-        # time.sleep(2)
+        time.sleep(2)
         print('----------Área do Fornecedor----------\n')
-        # time.sleep(1)
+        time.sleep(1)
         menuFornecedores()
-    elif opcao == 3:
+
+    elif opcao == 3: #opcao de acesso ao menu produto.
         print('----------Abrindo Área de Produtos----------')
-        # time.sleep(2)
+        time.sleep(2)
         print('----------Área de Produtos----------\n')
-        # time.sleep(1)
+        time.sleep(1)
         menuProdutos()
-    elif opcao == 4:
+
+    elif opcao == 4: #opcao de acesso ao menu vendas.
         print('----------Abrindo Área de Vendas----------')
-        # time.sleep(2)
+        time.sleep(2)
         print('----------Área das Vendas----------')
-        # time.sleep(1)
+        time.sleep(1)
         menuVendas()
-        exit()
-    elif opcao == 5:
+
+    elif opcao == 5: #opcao de encerrar programa
         print('----------Programa Encerrado----------')
         exit()
-    else:
+    else: #caso o usuario tente dogitar numero acima de 5.
         print('Digite um número válido.')
