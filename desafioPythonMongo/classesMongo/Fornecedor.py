@@ -20,7 +20,7 @@ class Fornecedores(object):
         }
         fornecedores = banco.fornecedores
         fornecedores.insert_one(fornecedor)
-        # time.sleep(1)
+        time.sleep(1)
         print('Fornecedor inserido com sucesso...')
 
     def listarFornecedores(self): #função que mostra a lista de fornecedores cadastrados.
@@ -62,11 +62,11 @@ class Fornecedores(object):
         fornecedores = banco.fornecedores
         doc = fornecedores.find_one({'cnpj': codigoCNPJ})
         print('Buscando fornecedor')
-        # time.sleep(1)
+        time.sleep(1)
         if (doc is None):
             print('CNPJ não encontrado.')
         else:
             print('Fornecedor encontrado.')
-            # time.sleep(1)
+            time.sleep(1)
             return doc
 
