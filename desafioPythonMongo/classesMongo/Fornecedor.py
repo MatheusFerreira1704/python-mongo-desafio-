@@ -58,7 +58,7 @@ class Fornecedores(object):
             print('Fornecedor removido com sucesso.')
 
     def referenciador(self, codigoCNPJ): #função que referência o documento do fornecedor na hora da inserir
-        # um documento vento na collection de venda.
+        # um documento produto na collection de produto.
         fornecedores = banco.fornecedores
         doc = fornecedores.find_one({'cnpj': codigoCNPJ})
         print('Buscando fornecedor')

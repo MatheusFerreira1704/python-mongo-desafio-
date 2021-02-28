@@ -12,23 +12,23 @@ banco = bdCliente['MongoVendas'] #referenciação ao banco.
 
 class Produtos(object):
 
-    def inserir(self, cnpjFornecedor):
+    def inserir(self, cnpjFornecedor): #funcao de persistencia do documento produto na collection produto.
 
-        trazerFornecedor = Fornecedores()
+        trazerFornecedor = Fornecedores() #instancia criada para trazer documento do fornecedor
 
         produto = {
             'categoria': self.categoria,
             'nome': self.nome,
             'codigo': self.codigo,
             'preco': self.preco,
-            'fornecedor': trazerFornecedor.referenciador(codigoCNPJ=cnpjFornecedor)
+            'fornecedor': trazerFornecedor.referenciador(codigoCNPJ=cnpjFornecedor) #referencia ao documento do fornecedor
         }
         produtos = banco.produtos
         produtos.insert_one(produto)
-        # time.sleep(1)
+        time.sleep(1)
         print('Produto inserido com sucesso...')
 
-    def listarProdutos(self):
+    def listarProdutos(self): #função de listar produtos cadastrado.
         produtos = banco.produtos
         for doc in produtos.find():
 
@@ -37,11 +37,11 @@ class Produtos(object):
                   f"CNPJ Fornecedor:{doc['fornecedor']['cnpj']}"
                   )
 
-    def pesquisarProduto(self, codigo):
+    def pesquisarProduto(self, codigo): #função de buscar produto pelo codigo.
         produtos = banco.produtos
         doc = produtos.find_one({'codigo': codigo})
         print('Buscando Produto...')
-        # time.sleep(1)
+        time.sleep(1)
         if doc is None:
             print('Produto não encontrado.')
         else:
@@ -50,7 +50,7 @@ class Produtos(object):
             f"CNPJ Fornecedor: {doc['fornecedor']['cnpj']}"
             )
 
-    def atualizarProduto(self, codigo, dado, valor):
+    def atualizarProduto(self, codigo, dado, valor): #função de atualização do documento produto ja cadastrado.
         produtos = banco.produtos
         doc = produtos.find_one({'codigo': codigo})
         if doc is None:
@@ -62,7 +62,7 @@ class Produtos(object):
                 }
             })
 
-    def removerProduto(self, codigo):
+    def removerProduto(self, codigo): #função de remover produto.
         produtos = banco.produtos
         doc = produtos.find_one({'codigo': codigo})
         if doc is None:
@@ -72,14 +72,14 @@ class Produtos(object):
             print('Produto excluido com sucesso...')
 
 
-    def buscarProduto(self, refCodigo):
+    def buscarProduto(self, refCodigo): #função utilizada para referenciar o produto na persistencia do documento venda.
         produtos = banco.produtos
         doc = produtos.find_one({'codigo': refCodigo})
         print('Buscando produto')
-        # time.sleep(1)
+        time.sleep(1)
         if (doc is None):
             print('Produto não encontrado.')
         else:
             print('Produto encontrado.')
-            # time.sleep(1)
+            time.sleep(1)
             return doc

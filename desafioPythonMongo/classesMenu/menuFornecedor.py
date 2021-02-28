@@ -87,29 +87,29 @@ def menuFornecedores():
                 f'\t1 - Alterar Razão Social.\n'
                 f'\t2 - Alterar CNPJ.\n'
                 f'\t3 - Alterar Representante.\n'
-                f'\t4 - Alterar Telefone.')
+                f'\t4 - Alterar Telefone.') #interação com o usuário sobre quais informações ele deseja atualizar do fornecedor.
             time.sleep(1)
             try:
                 opcaoDeAtualizar = int(input('Digite uma opcao: '))
             except ValueError:
                 opcaoDeAtualizar = -1
 
-            if opcaoDeAtualizar == 1:  #interação com o usuário sobre quais informações ele deseja atualizar do cliente.
-                novaRazaoSocial = input('Digite o novo nome da Empresa: ')# input do nome do fornecedor.
+            if opcaoDeAtualizar == 1: #Opcao de atualizar razao social do fornecedor.
+                novaRazaoSocial = input('Digite o novo nome da Empresa: ')# input da nova razao social do fornecedor.
                 atualizarFornecedor.atualizarFornecedor(cnpj, dado='razao_social', valor=novaRazaoSocial)
                 print('Nome da Empresa atualizado com sucesso...')
 
-            elif opcaoDeAtualizar == 2:
+            elif opcaoDeAtualizar == 2: #opcao de atualizar cnpj do fornecedor.
                 novoCnpj = input('Digite o CNPJ: ') #input do cnpj
                 atualizarFornecedor.atualizarFornecedor(cnpj, dado='cnpj', valor=novoCnpj)
                 print('CNPJ atualizado com sucesso...')
 
-            elif opcaoDeAtualizar == 3:
+            elif opcaoDeAtualizar == 3: #opcao de atualizar representante.
                 novoRepresentante = input('Digite o nome do Representante: ') #input do nome do representante.
                 atualizarFornecedor.atualizarFornecedor(cnpj, dado='representante', valor=novoRepresentante)
                 print('Representante atualizado(a) com sucesso...')
 
-            elif opcaoDeAtualizar == 4:
+            elif opcaoDeAtualizar == 4: #opcao de atualizar telefone.
                 novoTelefone = input('Digite o novo Telefone: ') #input do telefone.
                 atualizarFornecedor.atualizarFornecedor(cnpj, dado='telefone', valor=novoTelefone)
                 print('Telefone atualizado com sucesso...')

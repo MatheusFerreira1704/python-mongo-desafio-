@@ -21,7 +21,7 @@ class Clientes(object):
         }
         clientes = banco.clientes
         clientes.insert_one(cliente)
-        # time.sleep(1)
+        time.sleep(1)
         print(f'Cliente inserido com sucesso...')
 
     def listaCliente(self): #função para listar todos os clientes cadastrados no banco.
@@ -33,7 +33,7 @@ class Clientes(object):
         clientes = banco.clientes
         doc = clientes.find_one({'cpf': cpf})
         print('Buscando cliente.')
-        # time.sleep(1)
+        time.sleep(1)
         if doc is None:
             print('CPF não encontrado.')
         else:
@@ -59,16 +59,16 @@ class Clientes(object):
         else:
             clientes.delete_one(doc)
 
-    def buscarCliente(self, cpf): #Função de buscar de obejto cliente, para inserir no cadastro da venda.
+    def buscarCliente(self, cpf): #Função de buscar de documento Cliente, para inserir no cadastro da venda.
         clientes = banco.clientes
         doc = clientes.find_one({'cpf': cpf})
         print('Buscando cliente.')
-        # time.sleep(1)
+        time.sleep(1)
         if (doc is None):
             print('CPF não encontrado.')
         else:
             print('Cliente encontrado.')
-            # time.sleep(1)
+            time.sleep(1)
             return doc
 
 
